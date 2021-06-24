@@ -895,13 +895,13 @@ div.resumen div.total {
   padding: 30px;
 }
 div.resumen input {
-    display: block;
+    display: inline-block;
     margin: 10px auto;
 }
 #lista-productos {
   background-color: #e1e1e1;
   padding: 20px;
-  display: none;
+  display: inline-block;
 }
 #suma-total {
   text-align: center;
