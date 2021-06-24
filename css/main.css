@@ -901,7 +901,13 @@ div.resumen input {
 #lista-productos {
   background-color: #e1e1e1;
   padding: 20px;
-  display: none;
+  display:block;
+}
+
+.list-group-item{
+  background-color: #e1e1e1;
+  padding: 20px;
+  display:block;
 }
 #suma-total {
   text-align: center;
