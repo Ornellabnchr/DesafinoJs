@@ -17,95 +17,174 @@ probandoBoton.addEventListener('click', calcularTodo)
 
 
 var valorDiv=document.getElementById('suma-total')
+ //contador para contar la cantidad de veces que se llamo al evento probando boton mientra esta en la misma sesion 
+var contador=0;
+console.log(contador)
 
-///Creo items/ Listas de productos
-var items = document.getElementsByClassName('list-group-item')
 
+    function calcularTodo(){
+        console.log("llamada a boton")
+       //cuento click    
+         contador++;
 
-function calcularTodo(){
-    console.log("llamada a boton")
-   ///guardo la cantidad comprada
-    var cantDiaC=Number(cantDia.value)
-    console.log("Cantidad de Pases para Un dia: " + cantDiaC)
-    var cantCompletoC=Number(cantCompleto.value)
-    console.log("Cantidad de Pases para Dia Completo: " + cantCompletoC)
-    var cantDosDiasC=Number(cantDosDias.value)
-    console.log("Cantidad de Pases para Dos Dias: " + cantDosDiasC)
-    var cantCamisetaC=Number(cantCamiseta.value)
-    console.log("Cantidad de Camisetas: " + cantCamisetaC)
-    var cantEtiquetasC=Number(cantEtiquetas.value)
-    console.log("Cantidad de Etiquetas: " + cantEtiquetasC)
-
-    //guardo precios unitarios
-    console.log("PRECIOS UNITARIOS")
-    var precioDia=Number(precioun.value)
-    console.log("Precio de Pase por un dia: $" + precioDia)
-    var precioCompleto=Number(precioComp.value)
-    console.log("Precio de Pase Completo: $" + precioCompleto)
-    var precioDosDias=Number(precioDosD.value)
-    console.log("Precio de Dos Dias: $" + precioDosDias)
-    const camisetapreciodesc=(10*93)/100
-    console.log("Precio de Camisetas con 10% de descuento: $" + camisetapreciodesc)
-    var precioEtiquetas=Number(precioEt.value)
-    console.log("Precio de Camisetas: $" + precioEtiquetas)
-///guardo precios totales de cada unidad segun cantidad comprada
-    console.log("Precio Total: ")
-    var cantDiaV=Number(cantDia.value)*precioDia
-    console.log("Precio Total de pase por un dia: $" + cantDiaV)
-    var cantCompletoV=Number(cantCompleto.value)*precioCompleto
-    console.log("Precio Total de pase completo: $" + cantCompletoV)
-    var cantDosDiasV=Number(cantDosDias.value)*precioDia
-    console.log("Precio Total de pase por dos dias: $" + cantDosDiasV)
-    var cantCamisetaV=Number(cantCamiseta.value)*parseFloat(camisetapreciodesc)
-    console.log("Precio Total de camisetas: $" + cantCamisetaV)
-    var cantEtiquetasV=Number(cantEtiquetas.value)*precioEtiquetas
-    console.log("Precio Total de etiquetas: $" + cantEtiquetasV)
-
-   ///sumo toda la compra
-    var totalPagar=cantDiaV+cantCompletoV+cantDosDiasV+cantCamisetaV+cantEtiquetasV
-    console.log("Precio total a pagar: $"+totalPagar)
+         //guardo la cantidad comprada
+        var cantDiaC=Number(cantDia.value)
+        console.log("Cantidad de Pases para Un dia: " + cantDiaC)
+        var cantCompletoC=Number(cantCompleto.value)
+        console.log("Cantidad de Pases para Dia Completo: " + cantCompletoC)
+        var cantDosDiasC=Number(cantDosDias.value)
+        console.log("Cantidad de Pases para Dos Dias: " + cantDosDiasC)
+        var cantCamisetaC=Number(cantCamiseta.value)
+        console.log("Cantidad de Camisetas: " + cantCamisetaC)
+        var cantEtiquetasC=Number(cantEtiquetas.value)
+        console.log("Cantidad de Etiquetas: " + cantEtiquetasC)
     
-    ///guardo la opcion seleccionada de regalo
-    var val=document.getElementById('regalo')
-    var valchar
-    if(val.value==2){
-    valchar='Etiquetas'
-    }
-    else{
-        if(val.value==1){
-        valchar='Pulseras'
+        //guardo precios unitarios
+        console.log("PRECIOS UNITARIOS")
+        var precioDia=Number(precioun.value)
+        console.log("Precio de Pase por un dia: $" + precioDia)
+        var precioCompleto=Number(precioComp.value)
+        console.log("Precio de Pase Completo: $" + precioCompleto)
+        var precioDosDias=Number(precioDosD.value)
+        console.log("Precio de Dos Dias: $" + precioDosDias)
+        const camisetapreciodesc=(10*93)/100
+        console.log("Precio de Camisetas con 10% de descuento: $" + camisetapreciodesc)
+        var precioEtiquetas=Number(precioEt.value)
+        console.log("Precio de Camisetas: $" + precioEtiquetas)
+    ///guardo precios totales de cada unidad segun cantidad comprada
+        console.log("Precio Total: ")
+        var cantDiaV=Number(cantDia.value)*precioDia
+        console.log("Precio Total de pase por un dia: $" + cantDiaV)
+        var cantCompletoV=Number(cantCompleto.value)*precioCompleto
+        console.log("Precio Total de pase completo: $" + cantCompletoV)
+        var cantDosDiasV=Number(cantDosDias.value)*precioDia
+        console.log("Precio Total de pase por dos dias: $" + cantDosDiasV)
+        var cantCamisetaV=Number(cantCamiseta.value)*parseFloat(camisetapreciodesc)
+        console.log("Precio Total de camisetas: $" + cantCamisetaV)
+        var cantEtiquetasV=Number(cantEtiquetas.value)*precioEtiquetas
+        console.log("Precio Total de etiquetas: $" + cantEtiquetasV)
+    
+       ///sumo toda la compra
+        var totalPagar=cantDiaV+cantCompletoV+cantDosDiasV+cantCamisetaV+cantEtiquetasV
+        console.log("Precio total a pagar: $"+totalPagar)
+        
+        ///guardo la opcion seleccionada de regalo
+        var val=document.getElementById('regalo')
+        var valchar
+        if(val.value==2){
+        valchar='Etiquetas'
         }
         else{
-            if(val.value==3){
-            valchar='Plumas'
+            if(val.value==1){
+            valchar='Pulseras'
             }
             else{
-                ///si no eligio regalo, se dispara alert
-                alert("No eligio regalo")
-                valchar="No eligio regalo"
+                if(val.value==3){
+                valchar='Plumas'
+                }
+                else{
+                    ///si no eligio regalo, se dispara alert
+                    alert("No eligio regalo")
+                    valchar="No eligio regalo"
+                }
+        }
+        }
+    
+    console.log("Regalo elegido: " + valchar);
+    console.log("-------------------------------------------------------------------------------")
+    ///array donde guardo strings para insertar en listas
+    var prod=[6]
+   
+     
+    
+    prod[0]=String(('Boletos Pase Por Dia :  ') + cantDiaC + (' U * $') + precioDia +  (' ------------ $') + cantDiaV);
+    prod[1]=String(('Boletos Pase Completo :  ') + cantCompletoC + (' U * $') + precioCompleto +  (' --------- $') + cantCompletoV)
+    prod[2]=String(('Boletos Dos Dias :  ') + cantDosDiasC + (' U * $') + precioDosDias +  (' ------------ $') + cantDosDiasV);
+    prod[3]=String(('Camisetas : (7% de descuento) ' )+ cantCamisetaC + (' U * $') + parseFloat(camisetapreciodesc) +  (' --------- $') + cantCamisetaV)
+    prod[4]=String(('Etiquetas :  ') + cantEtiquetasC + (' U * $') + precioEtiquetas +  (' ------------ $') + cantEtiquetasV);
+    prod[5]=String(('Regalo:  ') + valchar );
+    
+     //array donde guardo la cantidad de elementos comprados de casa producto
+     var compra=[6];
+
+    compra[0]=Number(cantDiaC) 
+    compra[1]=Number(cantCompletoC) 
+    compra[2]=Number(cantDosDiasC)
+    compra[3]=Number(cantCamisetaC) 
+    compra[4]=Number(cantEtiquetasC)
+    compra[5]=1
+
+    ///si es el primer click, sucedera esto, se crea todo por primera vez
+    if(contador==0){
+       
+     //Tomo en valorDiv a lista-productos
+     var valorDiv=document.getElementById("lista-productos")
+     //tomo el valor de ul "list" del documento
+     var list = document.getElementById("list")
+     //asigno list ul como hijo de lista-productos
+     valorDiv.appendChild(list)
+     //creo hijos de list ul = lista li
+  
+      
+        ///con un for recorro el array de las compras
+    for(var j=0;j<6;j++){
+        //si la cantidad de la compra es mayor que 0
+               if(compra[j]>0){
+                   ///creo elemento lista
+                var itemlist = document.createElement("li")
+                   ///relleno el itemlist lista
+                itemlist.textContent=prod[j]
+                ///asigno itemlist como hijo de list li -hijo de ul
+                list.appendChild(itemlist)
+                ///muestro en consola uno de los productos comprados
+                console.log(itemlist)
             }
     }
-    }
-console.log("Regalo elegido: " + valchar)
-///Agrego contenido a items / lista de productos comprados y el regalo
-    items[0].textContent = 'Boletos Pase Un Dia :  ' + cantDiaC + ' * $' + precioDia +  ' ------------ $' + cantDiaV
-    items[1].textContent = 'Boletos Pase Completo :  ' + cantCompletoC + ' * $' + precioCompleto +  ' ------------ $' + cantCompletoV
-    items[2].textContent = 'Boletos Dos Dias :  ' + cantDosDiasC + ' * $' + precioDosDias +  ' ------------ $' + cantDosDiasV
-    items[3].textContent = 'Boletos para Un dia (Viernes) :  ' + cantCamisetaC + ' * $' + parseFloat(camisetapreciodesc) +  ' ------------ $' + cantCamisetaV
-    items[4].textContent = 'Boletos para Un dia (Viernes) :  ' + cantEtiquetasC + ' * $' + precioEtiquetas +  ' ------------ $' + cantEtiquetasV
-    items[5].textContent = 'Boletos para Un dia (Viernes) :  ' + valchar + ' ------------  $0 '
     
-    ///muestro por consola el resumen
-    console.log("RESUMEN: ")
-    for(var i=0;i<items.length;i++){
-
-    console.log(items[i])
+    //tomo al hijo y al padre
     
-    
-    }
-
-    ///agrego el resultado del total a pagar 
+    console.log("-------------------------------------------------------------------------------")
+    var valorDiv=document.getElementById("suma-total")
     valorDiv.textContent= "$" + totalPagar
     console.log(valorDiv)
-
+   
+    }
+    ///si no es el primer click
+    else{
+        ///tomo al elemento padre "list" ul
+        var list = document.getElementById("list");
+        //mientras que el elemento padre tenga hijos, removerlos
+        while (list.hasChildNodes()){ list.removeChild(list.lastChild); }
+          //Tomo en valorDiv a lista-productos
+     var valorDiv=document.getElementById("lista-productos")
+     //tomo el valor de ul "list" del documento
+     var list = document.getElementById("list")
+     //asigno list ul como hijo de lista-productos
+     valorDiv.appendChild(list)
+     //creo hijos de list ul = lista li
+  
+      
+        ///con un for recorro el array de las compras
+    for(var j=0;j<6;j++){
+        //si la cantidad de la compra es mayor que 0
+               if(compra[j]>0){
+                   ///creo elemento lista
+                var itemlist = document.createElement("li")
+                   ///relleno el itemlist lista
+                itemlist.textContent=prod[j]
+                ///asigno itemlist como hijo de list li -hijo de ul
+                list.appendChild(itemlist)
+                ///muestro en consola uno de los productos comprados
+                console.log(itemlist)
+            }
+    }
+    
+    //tomo al hijo y al padre
+    
+    console.log("-------------------------------------------------------------------------------")
+    var valorDiv=document.getElementById("suma-total")
+    valorDiv.textContent= "$" + totalPagar
+    console.log(valorDiv)
+   
+    }
 }
