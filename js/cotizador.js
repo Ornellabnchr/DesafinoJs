@@ -2,12 +2,13 @@
 var cantDia= document.getElementById('pase_dia');
 var cantCompleto=document.getElementById('pase_completo');
 var cantDosDias=document.getElementById('pase_dosdias');
-var cantCamiseta=document.getElementById('camisa_evento');
+var cantCamisa=document.getElementById('camisa_evento');
 var cantEtiquetas=document.getElementById('etiquetas');
 ///obtengo datos de precio 
 var precioun=document.getElementById('p_undia');
 var precioComp=document.getElementById('p_completo');
 var precioDosD=document.getElementById('p_dosdias');
+var precioCa=document.getElementById('p_rem');
 var precioEt=document.getElementById('p_etiq');
 
 
@@ -34,8 +35,8 @@ console.log(contador)
         console.log("Cantidad de Pases para Dia Completo: " + cantCompletoC)
         var cantDosDiasC=Number(cantDosDias.value)
         console.log("Cantidad de Pases para Dos Dias: " + cantDosDiasC)
-        var cantCamisetaC=Number(cantCamiseta.value)
-        console.log("Cantidad de Camisetas: " + cantCamisetaC)
+        var cantCamisaC=Number(cantCamisa.value)
+        console.log("Cantidad de Camisas: " + cantCamisaC)
         var cantEtiquetasC=Number(cantEtiquetas.value)
         console.log("Cantidad de Etiquetas: " + cantEtiquetasC)
     
@@ -47,8 +48,8 @@ console.log(contador)
         console.log("Precio de Pase Completo: $" + precioCompleto)
         var precioDosDias=Number(precioDosD.value)
         console.log("Precio de Dos Dias: $" + precioDosDias)
-        const camisetapreciodesc=(10*93)/100
-        console.log("Precio de Camisetas con 10% de descuento: $" + camisetapreciodesc)
+        const camisapreciodesc=((precioCa.value)*93)/100
+        console.log("Precio de Camisas con 10% de descuento: $" + camisapreciodesc)
         var precioEtiquetas=Number(precioEt.value)
         console.log("Precio de Camisetas: $" + precioEtiquetas)
     ///guardo precios totales de cada unidad segun cantidad comprada
@@ -59,13 +60,13 @@ console.log(contador)
         console.log("Precio Total de pase completo: $" + cantCompletoV)
         var cantDosDiasV=Number(cantDosDias.value)*precioDia
         console.log("Precio Total de pase por dos dias: $" + cantDosDiasV)
-        var cantCamisetaV=Number(cantCamiseta.value)*parseFloat(camisetapreciodesc)
-        console.log("Precio Total de camisetas: $" + cantCamisetaV)
+        var cantCamisaV=Number(cantCamisa.value)*parseFloat(camisapreciodesc)
+        console.log("Precio Total de camisas: $" + cantCamisaV)
         var cantEtiquetasV=Number(cantEtiquetas.value)*precioEtiquetas
         console.log("Precio Total de etiquetas: $" + cantEtiquetasV)
     
        ///sumo toda la compra
-        var totalPagar=cantDiaV+cantCompletoV+cantDosDiasV+cantCamisetaV+cantEtiquetasV
+        var totalPagar=cantDiaV+cantCompletoV+cantDosDiasV+cantCamisaV+cantEtiquetasV
         console.log("Precio total a pagar: $"+totalPagar)
         
         ///guardo la opcion seleccionada de regalo
@@ -100,7 +101,7 @@ console.log(contador)
     prod[0]=String(('Boletos Pase Por Dia :  ') + cantDiaC + (' U * $') + precioDia +  (' ------------ $') + cantDiaV);
     prod[1]=String(('Boletos Pase Completo :  ') + cantCompletoC + (' U * $') + precioCompleto +  (' --------- $') + cantCompletoV)
     prod[2]=String(('Boletos Dos Dias :  ') + cantDosDiasC + (' U * $') + precioDosDias +  (' ------------ $') + cantDosDiasV);
-    prod[3]=String(('Camisetas : (7% de descuento) ' )+ cantCamisetaC + (' U * $') + parseFloat(camisetapreciodesc) +  (' --------- $') + cantCamisetaV)
+    prod[3]=String(('Camisas : (7% de descuento) ' )+ cantCamisaC + (' U * $') + parseFloat(camisapreciodesc) +  (' --------- $') + cantCamisaV)
     prod[4]=String(('Etiquetas :  ') + cantEtiquetasC + (' U * $') + precioEtiquetas +  (' ------------ $') + cantEtiquetasV);
     prod[5]=String(('Regalo:  ') + valchar );
     
@@ -110,7 +111,7 @@ console.log(contador)
     compra[0]=Number(cantDiaC) 
     compra[1]=Number(cantCompletoC) 
     compra[2]=Number(cantDosDiasC)
-    compra[3]=Number(cantCamisetaC) 
+    compra[3]=Number(cantCamisaC) 
     compra[4]=Number(cantEtiquetasC)
     compra[5]=1
 
